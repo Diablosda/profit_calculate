@@ -1,0 +1,5 @@
+settlement-id	settlement-start-date	settlement-end-date	deposit-date	total-amount	currency	transaction-type	order-id	merchant-order-id	adjustment-id	shipment-id	marketplace-name	amount-type	amount-description	amount	fulfillment-id	posted-date	posted-date-time	order-item-code	merchant-order-item-id	merchant-adjustment-item-id	sku	quantity-purchased	promotion-id
+10208662943	13.04.2026 09:59:45 UTC	27.04.2026 09:59:45 UTC	29.04.2026 09:59:45 UTC	-11.47	AUD																		
+10208662943						Order	503-2579764-0158208			D9f6jqGqy	Amazon.com.au	ItemPrice	Principal	42.99	MFN	23.04.2026	23.04.2026 22:56:03 UTC	14741580345805			311001-25x5NJ-AU-FBM	1	
+10208662943						Order	503-2579764-0158208			D9f6jqGqy	Amazon.com.au	ItemFees	Commission	-4.51	MFN	23.04.2026	23.04.2026 22:56:03 UTC	14741580345805			311001-25x5NJ-AU-FBM	1	
+10208662943						other-transaction						other-transaction	Subscription Fee	-49.95		26.04.2026	26.04.2026 18:53:58 UTC						

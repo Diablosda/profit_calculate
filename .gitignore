@@ -28,3 +28,4 @@ FBM退货运费计入SFP尾程/
 # 忽略上述所有限制，强制放行 example_data 文件夹及其内部所有表格
 !example_data/
 !example_data/**
+!scripts/

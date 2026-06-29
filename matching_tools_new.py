@@ -483,7 +483,7 @@ def batch_match_fields_and_export_unmatched(
     # 如果是 CA 或 AU，预计算 US 上下文用于兜底
     us_context = None
     us_asin_to_msku = {}
-    if country is not None and str(country).upper() in ["CA", "AU"]:
+    if country is not None and str(country).upper() in ["CA"]:
         us_context = get_country_context("US")
         us_prop, _, _ = us_context
         if not us_prop.empty and prop_msku_col and prop_asin_col:

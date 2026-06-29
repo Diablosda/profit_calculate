@@ -364,6 +364,7 @@ def match_fields_to_df_robust(df, target_field, product_property, country=None):
     field_map = {
         "物料大类": ["物料大类"],
         "运营负责人(核算参考)": ["上月运营负责人(核算参考)", "上月运营负责人"],
+        "产品重要性": ["产品重要性"],
         "采购价(不含税)": ["采购价", "采购价(不含税)"],
         "头程": ["头程"],
     }
@@ -390,7 +391,7 @@ def batch_match_fields_and_export_unmatched_eu(
     欧洲站分流匹配主函数 - 修复版
     解决：标识符互补失效、反向一对多匹配、标签显示异常等问题
     """
-    target_fields = ["上月运营负责人(核算参考)", "采购价(不含税)", "头程"]
+    target_fields = ["上月运营负责人(核算参考)", "产品重要性", "采购价(不含税)", "头程"]
     processed = {}
     unmatched_rows = []
 
@@ -526,7 +527,7 @@ def refill_from_unmatched_eu(
     回填函数：将手动补全的未匹配记录表更新回源表
     """
     if target_fields is None:
-        target_fields = ["上月运营负责人(核算参考)", "采购价(不含税)", "头程"]
+        target_fields = ["上月运营负责人(核算参考)", "产品重要性", "采购价(不含税)", "头程"]
 
     def _normalize_series_to_na(s: pd.Series) -> pd.Series:
         return s.astype(str).str.strip().replace({"nan": np.nan, "None": np.nan, "": np.nan})

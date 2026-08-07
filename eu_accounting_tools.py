@@ -480,14 +480,16 @@ def batch_match_fields_and_export_unmatched_eu(
         mask_target_na = cur_matched[target_fields].isna().any(axis=1)
         final_unmatched_mask = mask_id_na | mask_target_na
 
+        if "缺失标签" not in cur_matched.columns:
+            cur_matched["缺失标签"] = np.nan
+
         if final_unmatched_mask.any():
+            cur_matched.loc[final_unmatched_mask, "缺失标签"] = [
+                f"{name}-{i}" for i in cur_matched.index[final_unmatched_mask]
+            ]
             unmatched = cur_matched[final_unmatched_mask].copy()
             unmatched["源表"] = name
-            
-            # --- 新增：生成“表名-行号”格式的缺失标签 ---
-            # 这确保了即便没有 ASIN/MSKU，手动填写后也能回填到源表的对应位置
-            unmatched["缺失标签"] = [f"{name}-{i}" for i in unmatched.index]
-            
+
             # 缺失状态判定逻辑保持不变
             unmatched["缺失状态"] = "" 
             both_missing = (unmatched[sku_col].isna()) & (unmatched[asin_col].isna())
